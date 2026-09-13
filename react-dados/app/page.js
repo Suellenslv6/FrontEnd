@@ -67,11 +67,11 @@ export default function JogoDeDados() {
   function finalizarJogo(placarFinal) {
     let resultado;
     if (placarFinal.jogador1 > placarFinal.jogador2) {
-      resultado = '🏆 Jogador 1 venceu a partida!';
+      resultado = 'Jogador 1 venceu a partida!';
     } else if (placarFinal.jogador2 > placarFinal.jogador1) {
-      resultado = '🏆 Jogador 2 venceu a partida!';
+      resultado = 'Jogador 2 venceu a partida!';
     } else {
-      resultado = '🤝 Empate geral!';
+      resultado = 'Empate geral!';
     }
     setMensagemFinal(resultado);
     setJogoFinalizado(true);
