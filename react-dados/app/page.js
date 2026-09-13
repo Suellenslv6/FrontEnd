@@ -5,12 +5,28 @@ import styles from './page.module.css';
 
 const TOTAL_RODADAS = 5;
 
-export default function JogoDeDados() {
+// Componente Dado: recebe a prop "valor" (1 a 6) e mostra a IMAGEM
+// correspondente, salva dentro do projeto em /public/dados/
+function Dado({ valor }) {
+  return (
+    <img
+      src={`/dados/${valor}.png`}
+      alt={`Dado mostrando ${valor}`}
+      className={styles.dado}
+    />
+  );
+}
+
+// Componente principal do jogo
+export default function JogoDados() {
   const [rodada, setRodada] = useState(1);
-  const [dadosJogador1, setDadosJogador1] = useState([null, null]);
-  const [dadosJogador2, setDadosJogador2] = useState([null, null]);
-  const [jogador1Jogou, setJogador1Jogou] = useState(false);
-  const [jogador2Jogou, setJogador2Jogou] = useState(false);
+  const [dadosJogador1, setDadosJogador1] = useState(null); // null = ainda não jogou nesta rodada
+  const [dadosJogador2, setDadosJogador2] = useState(null);
+
+  // NOVO: controla de quem é a vez (1 ou 2). Só o botão desse
+  // jogador fica habilitado, atendendo ao requisito do enunciado.
+  const [turnoAtual, setTurnoAtual] = useState(1);
+
   const [mensagem, setMensagem] = useState('');
   const [placar, setPlacar] = useState({ jogador1: 0, jogador2: 0, empates: 0 });
   const [jogoFinalizado, setJogoFinalizado] = useState(false);
@@ -20,25 +36,24 @@ export default function JogoDeDados() {
     return Math.floor(Math.random() * 6) + 1;
   }
 
+  // Jogador 1 joga (só funciona se for a vez dele)
   function jogarJogador1() {
-    if (jogador1Jogou || jogoFinalizado) return;
+    if (turnoAtual !== 1 || jogoFinalizado) return;
     const novosDados = [rolarDado(), rolarDado()];
     setDadosJogador1(novosDados);
-    setJogador1Jogou(true);
-    verificarFimDaRodada(true, jogador2Jogou, novosDados, dadosJogador2);
+    setTurnoAtual(2); // passa a vez para o jogador 2
   }
 
+  // Jogador 2 joga (só funciona se for a vez dele)
   function jogarJogador2() {
-    if (jogador2Jogou || jogoFinalizado) return;
+    if (turnoAtual !== 2 || jogoFinalizado) return;
     const novosDados = [rolarDado(), rolarDado()];
     setDadosJogador2(novosDados);
-    setJogador2Jogou(true);
-    verificarFimDaRodada(jogador1Jogou, true, dadosJogador1, novosDados);
+    resolverRodada(dadosJogador1, novosDados);
   }
 
-  function verificarFimDaRodada(j1Jogou, j2Jogou, dados1, dados2) {
-    if (!(j1Jogou && j2Jogou)) return;
-
+  // Chamada assim que o jogador 2 (o segundo a jogar) termina a rodada
+  function resolverRodada(dados1, dados2) {
     const soma1 = dados1[0] + dados1[1];
     const soma2 = dados2[0] + dados2[1];
 
@@ -67,11 +82,11 @@ export default function JogoDeDados() {
   function finalizarJogo(placarFinal) {
     let resultado;
     if (placarFinal.jogador1 > placarFinal.jogador2) {
-      resultado = 'Jogador 1 venceu a partida!';
+      resultado = '🏆 Jogador 1 venceu a partida!';
     } else if (placarFinal.jogador2 > placarFinal.jogador1) {
-      resultado = 'Jogador 2 venceu a partida!';
+      resultado = '🏆 Jogador 2 venceu a partida!';
     } else {
-      resultado = 'Empate geral!';
+      resultado = '🤝 Empate geral!';
     }
     setMensagemFinal(resultado);
     setJogoFinalizado(true);
@@ -79,25 +94,23 @@ export default function JogoDeDados() {
 
   function proximaRodada() {
     setRodada((r) => r + 1);
-    setDadosJogador1([null, null]);
-    setDadosJogador2([null, null]);
-    setJogador1Jogou(false);
-    setJogador2Jogou(false);
+    setDadosJogador1(null);
+    setDadosJogador2(null);
+    setTurnoAtual(1); // a rodada nova sempre começa com o jogador 1
   }
 
   function reiniciarJogo() {
     setRodada(1);
-    setDadosJogador1([null, null]);
-    setDadosJogador2([null, null]);
-    setJogador1Jogou(false);
-    setJogador2Jogou(false);
+    setDadosJogador1(null);
+    setDadosJogador2(null);
+    setTurnoAtual(1);
     setMensagem('');
     setPlacar({ jogador1: 0, jogador2: 0, empates: 0 });
     setJogoFinalizado(false);
     setMensagemFinal('');
   }
 
-  const ambosJogaram = jogador1Jogou && jogador2Jogou;
+  const ambosJogaram = dadosJogador1 !== null && dadosJogador2 !== null;
 
   // ---------- TELA DE FIM DE JOGO ----------
   if (jogoFinalizado) {
@@ -127,10 +140,17 @@ export default function JogoDeDados() {
           <div className={styles.coluna}>
             <h2>Jogador 1</h2>
             <div className={styles.dados}>
-              <Dado valor={dadosJogador1[0]} />
-              <Dado valor={dadosJogador1[1]} />
+              {dadosJogador1 ? (
+                <>
+                  <Dado valor={dadosJogador1[0]} />
+                  <Dado valor={dadosJogador1[1]} />
+                </>
+              ) : (
+                <div className={styles.dadoVazio}>?</div>
+              )}
             </div>
-            <button onClick={jogarJogador1} disabled={jogador1Jogou}>
+            {/* Só habilitado quando for a vez do jogador 1 */}
+            <button onClick={jogarJogador1} disabled={turnoAtual !== 1}>
               Jogar
             </button>
           </div>
@@ -138,10 +158,17 @@ export default function JogoDeDados() {
           <div className={styles.coluna}>
             <h2>Jogador 2</h2>
             <div className={styles.dados}>
-              <Dado valor={dadosJogador2[0]} />
-              <Dado valor={dadosJogador2[1]} />
+              {dadosJogador2 ? (
+                <>
+                  <Dado valor={dadosJogador2[0]} />
+                  <Dado valor={dadosJogador2[1]} />
+                </>
+              ) : (
+                <div className={styles.dadoVazio}>?</div>
+              )}
             </div>
-            <button onClick={jogarJogador2} disabled={jogador2Jogou}>
+            {/* Só habilitado quando for a vez do jogador 2 */}
+            <button onClick={jogarJogador2} disabled={turnoAtual !== 2}>
               Jogar
             </button>
           </div>
@@ -159,8 +186,4 @@ export default function JogoDeDados() {
       </div>
     </div>
   );
-}
-
-function Dado({ valor }) {
-  return <div className={styles.dado}>{valor ?? '?'}</div>;
 }
