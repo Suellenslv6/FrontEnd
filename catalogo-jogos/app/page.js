@@ -2,12 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Parse from "./jogosParse";
+import Header from "./Header";
+import FormJogos from "./FormJogos";
 
 export default function Home() {
   const [jogos, setJogos] = useState([]);
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [year, setYear] = useState("");
 
   async function listar() {
     const query = new Parse.Query("Jogosantigos");
@@ -15,17 +14,13 @@ export default function Home() {
     setJogos(results);
   }
 
-  async function criar(e) {
-    e.preventDefault();
+  async function cadastrar(dados) {
     const Jogo = Parse.Object.extend("Jogosantigos");
     const jogo = new Jogo();
-    jogo.set("name", name);
-    jogo.set("price", Number(price));
-    jogo.set("year", Number(year));
+    jogo.set("name", dados.nome);
+    jogo.set("price", dados.preco);
+    jogo.set("year", dados.anoCriacao);
     await jogo.save();
-    setName("");
-    setPrice("");
-    setYear("");
     listar();
   }
 
@@ -33,18 +28,16 @@ export default function Home() {
     listar();
   }, []);
 
-  return (
-    <main style={{ padding: 24 }}>
-      <h1>Catálogo de jogos</h1>
+ return (
+  <>
+    <Header titulo="Catálogo de Jogos" subtitulo="Projeto Frontend e Backend" />
 
-      <form onSubmit={criar} style={{ display: "flex", gap: 8, margin: "16px 0" }}>
-        <input placeholder="Nome" value={name} onChange={(e) => setName(e.target.value)} required />
-        <input placeholder="Preço" type="number" value={price} onChange={(e) => setPrice(e.target.value)} required />
-        <input placeholder="Ano" type="number" value={year} onChange={(e) => setYear(e.target.value)} />
-        <button type="submit">Adicionar</button>
-      </form>
+    <main className="conteudo">
+      <div id="novo">
+        <FormJogos aoCadastrar={cadastrar} />
+      </div>
 
-      <ul>
+      <ul id="jogos" className="lista">
         {jogos.map((j) => (
           <li key={j.id}>
             {j.get("name")} ({j.get("year")}) - R$ {j.get("price")}
@@ -52,5 +45,5 @@ export default function Home() {
         ))}
       </ul>
     </main>
-  );
-}
+  </>
+)}
