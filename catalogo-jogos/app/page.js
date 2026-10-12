@@ -1,49 +1,81 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Parse from "./jogosParse";
 import Header from "./Header";
 import FormJogos from "./FormJogos";
 
-export default function Home() {
+export default function Page() {
   const [jogos, setJogos] = useState([]);
+  const [mensagem, setMensagem] = useState("");
 
-  async function listar() {
-    const query = new Parse.Query("Jogosantigos");
-    const results = await query.find();
-    setJogos(results);
-  }
+  async function carregarJogos() {
+    try {
+      const resposta = await fetch("/api/jogosProd");
+      const dados = await resposta.json();
 
-  async function cadastrar(dados) {
-    const Jogo = Parse.Object.extend("Jogosantigos");
-    const jogo = new Jogo();
-    jogo.set("name", dados.nome);
-    jogo.set("price", dados.preco);
-    jogo.set("year", dados.anoCriacao);
-    await jogo.save();
-    listar();
+      if (!resposta.ok) {
+        setMensagem(dados.mensagem);
+        return;
+      }
+      setJogos(Array.isArray(dados) ? dados : []);
+    } catch (error) {
+      console.error(error);
+      setMensagem("Não foi possível carregar os jogos");
+    }
   }
 
   useEffect(() => {
-    listar();
+    carregarJogos();
   }, []);
 
- return (
-  <>
-    <Header titulo="Catálogo de Jogos" subtitulo="Projeto Frontend e Backend" />
+  async function cadastrarJogos(jogo) {
+    setMensagem("");
+    try {
+      const resposta = await fetch("/api/jogosProd", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(jogo),
+      });
 
-    <main className="conteudo">
-      <div id="novo">
-        <FormJogos aoCadastrar={cadastrar} />
-      </div>
+      const dados = await resposta.json();
 
-      <ul id="jogos" className="lista">
-        {jogos.map((j) => (
-          <li key={j.id}>
-            {j.get("name")} ({j.get("year")}) - R$ {j.get("price")}
-          </li>
-        ))}
-      </ul>
-    </main>
-  </>
-)}
+      if (!resposta.ok) {
+        setMensagem(dados.mensagem);
+        return;
+      }
+
+      setJogos((atuais) => [dados, ...atuais]);
+      setMensagem("Jogo cadastrado com sucesso");
+    } catch (error) {
+      console.error(error);
+      setMensagem("Não foi possível cadastrar o jogo");
+    }
+  }
+
+  return (
+    <>
+      <Header titulo="Catálogo de Jogos" subtitulo="Projeto Frontend e Backend" />
+
+      <main className="conteudo">
+        <section className="card-form">
+          <FormJogos aoCadastrar={cadastrarJogos} />
+          {mensagem && <p className="mensagem">{mensagem}</p>}
+        </section>
+
+        <section className="secao-lista">
+          <h2>Jogos cadastrados</h2>
+
+          <div className="grade">
+            {jogos.map((j) => (
+              <article key={j.id} className="card-jogo">
+                <h3>{j.name}</h3>
+                <p>Ano: {j.year}</p>
+                <strong>R$ {Number(j.price).toFixed(2).replace(".", ",")}</strong>
+              </article>
+            ))}
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}
