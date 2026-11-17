@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { perfil, projetos } from "@/lib/dados";
+import { perfil, projetos, reposEscolhidos, descricoes } from "@/lib/dados";
 
 export default function Projetos() {
   const [repos, setRepos] = useState([]);
@@ -8,12 +8,14 @@ export default function Projetos() {
 
   // Integração com a GitHub API (pública, sem chave)
   useEffect(() => {
-    fetch(`https://api.github.com/users/${perfil.github}/repos?sort=updated&per_page=12`)
+    fetch(`https://api.github.com/users/${perfil.github}/repos?sort=updated&per_page=100`)
       .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((dados) => { setRepos(dados); setEstado("ok"); })
+      .then((dados) => {
+        setRepos(dados.filter((r) => reposEscolhidos.includes(r.name)));
+        setEstado("ok");
+      })
       .catch(() => setEstado("erro"));
   }, []);
-
   return (
     <>
       <h1>Projetos desenvolvidos</h1>
@@ -35,7 +37,7 @@ export default function Projetos() {
         {repos.map((r) => (
           <li key={r.id} className="card">
             <h3>{r.name}</h3>
-            <p>{r.description || "Sem descrição."}</p>
+            <p>{descricoes[r.name] || r.description || "Sem descrição."}</p>
             <p className="tags">{r.language && <span>{r.language}</span>}<span>★ {r.stargazers_count}</span></p>
             <a href={r.html_url} target="_blank" rel="noreferrer">Abrir repositório</a>
           </li>

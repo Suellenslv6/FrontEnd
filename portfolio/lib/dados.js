@@ -1,12 +1,11 @@
-// ✏️ EDITE AQUI: todos os textos do site ficam neste arquivo.
 export const perfil = {
   nome: "Suellen Silva",
-  cargo: "Auxialiar ADM, mas estudando para me tornar desenvolvedora Front-End.",
+  cargo: "Meu foco é estar sempre buscando melhorar minhas habilidades como desenvolvedora e uma boa profissional na área, acumulando conhecimento e podendo transmiti-lo também",
   resumo:
-    "Sou estudante do curso de sistemas para internet, aprendendo nessa cadeira de FrontEnd como desenvolver trabalhos utilizando React e Next.js.",
+    "Sou estudante do curso de sistemas para internet, estou no 3* Périodo, aprendendo nessa cadeira de FrontEnd como desenvolver trabalhos utilizando React e Next.js.",
   github: "Suellenslv6",
-  linkedin: "https://www.linkedin.com/in/SEU-USUARIO",
-  email: "seuemail@exemplo.com",
+  linkedin: "https://www.linkedin.com/in/suellen-silva-7439a7260?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+  email: "suellenssilv4@gmail.com",
 };
 
 export const tecnologias = [
@@ -21,19 +20,19 @@ export const tecnologias = [
 ];
 
 export const academica = [
-  { titulo: "Curso / Graduação", lugar: "Sua instituição", periodo: "2025 – atual", desc: "Foco em programação front-end, React e Next.js." },
-  { titulo: "Curso complementar", lugar: "Plataforma / Escola", periodo: "2024", desc: "Descreva o que você aprendeu." },
+  { titulo: "Cursando a Graduação", lugar: "Universidade Católica de Pernambuco UNICAP", periodo: "2025.2 – atualmente", desc: "Foco em programação FrontEnd, mas uper interessada em Banco de Dados e em Redes de computadores" },
+  { titulo: "Curso Profissionalizante", lugar: "Prepara Curso", periodo: "2024", desc: "Aprendi linguagens de programção, fiz atividades com banco de dados e pude dar meus primeiros passos em FrontEnd." },
 ];
 
 export const profissional = [
-  { titulo: "Seu cargo ou estágio", lugar: "Empresa", periodo: "2025", desc: "O que você fazia e quais resultados teve." },
-  { titulo: "Projeto freelance / voluntário", lugar: "Cliente ou ONG", periodo: "2024", desc: "Conte uma entrega que te orgulha." },
+  { titulo: "Estágio Nível Superior", lugar: "ASA Indústria e Comércio", periodo: "2026 - Atual", desc: "Sou estagiária na parte de ADM Vendas, faço otimizações em planilhas como Querys e Códigos VGA para ter uma melhor transferência de dados para os vendedores e os demais que acompanham a planilha." },
+  { titulo: "Jovem Aprendiz", lugar: "BAT Souza Cruz", periodo: "2024 - 2026", desc: "Fui aprendiz na área Administrativa, tendo como foco envio de bases e ." },
 ];
 
 export const projetos = [
   {
     nome: "Catálogo de Jogos",
-    desc: "Você digita o nome de um jogo e o app busca a capa em uma API. Feito com Next.js, componentes React (Header e FormJogos) e uma rota de API própria.",
+    desc: "Você digita o nome de um jogo e o app busca a capa em uma API. Feito com Next.js, componentes React e uma rota de API própria.",
     tags: ["Next.js", "React", "API Routes", "CSS Modules"],
     link: "https://github.com/Suellenslv6/FrontEnd",
   },
@@ -43,4 +42,16 @@ export const projetos = [
     tags: ["React", "Next.js", "Componentes"],
     link: "https://github.com/Suellenslv6/FrontEnd",
   },
+  {
+    nome: "react-dados",
+    desc: "Criação de jogo de dados, existem 5 rodadas o jogador que ganhar mais durante as 5 rodadas ele será o vencedor, feito com Next.js e componentes React.",
+    tags: ["React", "Next.js"],
+    link: "https://github.com/Suellenslv6/FrontEnd",
+  },
 ];
+export const reposEscolhidos = ["FrontEnd", "controle-de-estoque"];
+
+export const descricoes = {
+  "FrontEnd": "Meus projetos de estudo com React e Next.js, incluindo o catálogo de jogos.",
+  "controle-de-estoque": "Atividade feita em ligaugem Java para a cadeira de programação imperativa.",
+};
