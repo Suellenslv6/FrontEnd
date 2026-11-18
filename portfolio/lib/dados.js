@@ -1,8 +1,8 @@
 export const perfil = {
   nome: "Suellen Silva",
-  cargo: "Meu foco é estar sempre buscando melhorar minhas habilidades como desenvolvedora e uma boa profissional na área, acumulando conhecimento e podendo transmiti-lo também",
+  cargo: "Meu foco é me tornar uma boa profissional na área, sempre aprimorando meus conhecimentos da área de programação, tendo em vista ampliar ainda minha visão sobre a área e como ela é importante para o nosso dia a dia como: Otimizar tarefas, melhorar projetos e etc. Acumulando conhecimento e podendo transmiti-lo também. ",
   resumo:
-    "Sou estudante do curso de sistemas para internet, estou no 3* Périodo, aprendendo nessa cadeira de FrontEnd como desenvolver trabalhos utilizando React e Next.js.",
+    "Sou estudante do curso de sistemas para internet, estou no 3* Périodo, aprendendo nessa cadeira de FrontEnd como desenvolver trabalhos utilizando React e Next.js, melhorando ainda o visual do projeto e maneiras de aprimorar um projeto por meio dessa linguagem.",
   github: "Suellenslv6",
   linkedin: "https://www.linkedin.com/in/suellen-silva-7439a7260?utm_source=share_via&utm_content=profile&utm_medium=member_android",
   email: "suellenssilv4@gmail.com",
@@ -17,6 +17,7 @@ export const tecnologias = [
   { nome: "Git e GitHub", uso: "Versionamento e hospedagem do código." },
   { nome: "Vercel", uso: "Publicação do site com deploy automático." },
   { nome: "ESLint", uso: "Padronização e qualidade do código." },
+  { nome: "Back4app", uso: "Integração de banco de dados nas atividades" }
 ];
 
 export const academica = [
@@ -49,10 +50,9 @@ export const projetos = [
     link: "https://github.com/Suellenslv6/FrontEnd",
   },
 ];
-export const reposEscolhidos = ["FrontEnd", "controle-de-estoque", "meu-todo"];
+export const reposEscolhidos = ["FrontEnd", "controle-de-estoque",];
 
 export const descricoes = {
   "FrontEnd": "Meus projetos de estudo com React e Next.js, incluindo o catálogo de jogos.",
   "controle-de-estoque": "Atividade feita em ligaugem Java para a cadeira de programação imperativa.",
-  "meu-todo": "App de lista de tarefas criado com React + Vite como atividade prática.",
 };
