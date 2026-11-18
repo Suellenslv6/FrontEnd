@@ -21,8 +21,8 @@ export const tecnologias = [
 ];
 
 export const academica = [
-  { titulo: "Graduanda", lugar: "Universidade Católica de Pernambuco UNICAP", periodo: "2025.2 – atualmente", desc: "Aprendendo sobre algumas linguagens de programação sendo ela FrontEnd ou BackEnd, mas Sou bastanate interessada na parte de Banco de Dados e em Redes de computadores, gosto da dinâmica do curso como abrimos os olhos para todas as linguagens e no fim decidimos qual será nosso caminho" },
-  { titulo: "Curso Profissionalizante", lugar: "Prepara Curso", periodo: "2024", desc: "Foi onde dei meus primeiros passos no mundo da programação, engatei primeiro nas linguagens de programção, fiz várias atividades que envolvesse HTML/CSS, foi onde estudei pela primeira vez sobre banco de dados e Foi onde meu interesse na área começou." },
+  { titulo: "Graduanda", lugar: "Universidade Católica de Pernambuco UNICAP", Curso: "Sistemas Para Internet", periodo: "2025.2 – atualmente", desc: "Aprendendo sobre algumas linguagens de programação sendo ela FrontEnd ou BackEnd, mas Sou bastanate interessada na parte de Banco de Dados e em Redes de computadores, gosto da dinâmica do curso como abrimos os olhos para todas as linguagens e no fim decidimos qual será nosso caminho" },
+  { titulo: "Curso Profissionalizante", lugar: "Prepara Cursos", curso: "Linguagens De Programação", periodo: "2024 - 2025", desc: "Foi onde dei meus primeiros passos no mundo da programação, engatei primeiro nas linguagens de programção, fiz várias atividades que envolvesse HTML/CSS, foi onde estudei pela primeira vez sobre banco de dados e Foi onde meu interesse na área começou." },
 ];
 
 export const profissional = [

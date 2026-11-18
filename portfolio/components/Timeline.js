@@ -6,6 +6,7 @@ export default function Timeline({ itens }) {
           <time>{i.periodo}</time>
           <h3>{i.titulo}</h3>
           <p className="lugar">{i.lugar}</p>
+          <p>{i.Curso}</p>
           <p>{i.desc}</p>
         </li>
       ))}
