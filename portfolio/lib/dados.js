@@ -20,13 +20,13 @@ export const tecnologias = [
 ];
 
 export const academica = [
-  { titulo: "Cursando a Graduação", lugar: "Universidade Católica de Pernambuco UNICAP", periodo: "2025.2 – atualmente", desc: "Foco em programação FrontEnd, mas uper interessada em Banco de Dados e em Redes de computadores" },
-  { titulo: "Curso Profissionalizante", lugar: "Prepara Curso", periodo: "2024", desc: "Aprendi linguagens de programção, fiz atividades com banco de dados e pude dar meus primeiros passos em FrontEnd." },
+  { titulo: "Graduanda", lugar: "Universidade Católica de Pernambuco UNICAP", periodo: "2025.2 – atualmente", desc: "Aprendendo sobre algumas linguagens de programação sendo ela FrontEnd ou BackEnd, mas Sou bastanate interessada na parte de Banco de Dados e em Redes de computadores, gosto da dinâmica do curso como abrimos os olhos para todas as linguagens e no fim decidimos qual será nosso caminho" },
+  { titulo: "Curso Profissionalizante", lugar: "Prepara Curso", periodo: "2024", desc: "Foi onde dei meus primeiros passos no mundo da programação, engatei primeiro nas linguagens de programção, fiz várias atividades que envolvesse HTML/CSS, foi onde estudei pela primeira vez sobre banco de dados e Foi onde meu interesse na área começou." },
 ];
 
 export const profissional = [
-  { titulo: "Estágio Nível Superior", lugar: "ASA Indústria e Comércio", periodo: "2026 - Atual", desc: "Sou estagiária na parte de ADM Vendas, faço otimizações em planilhas como Querys e Códigos VGA para ter uma melhor transferência de dados para os vendedores e os demais que acompanham a planilha." },
-  { titulo: "Jovem Aprendiz", lugar: "BAT Souza Cruz", periodo: "2024 - 2026", desc: "Fui aprendiz na área Administrativa, tendo como foco envio de bases e ." },
+  { titulo: "Estágio Nível Superior", lugar: "ASA Indústria e Comércio", periodo: "2026 - Atual", desc: "Sou estagiária na parte de ADM Vendas, faço otimizações em planilhas com Querys e Códigos VBA para ter uma melhor transferência de dados para os vendedores e os demais que acompanham a planilha. Mesmo que o estágio não seja de fato na área de programção, ainda sim uso bastante conhecimento da minha área para fazer pequenas análises, criar Dashboard é uma dessas práticas, sempre tentando trazer minha área para minha posição no trabalho" },
+  { titulo: "Jovem Aprendiz", lugar: "BAT Souza Cruz", periodo: "2024 - 2026", desc: "Onde dei meu primeiro passo no mundo do trabalho, sendo aprendiz na área Administrativa, tendo como foco envio de bases e planilhas também, foi como aprendiz que conheci linguagns como: VBA, que permitia otimizar meu tempo nos envios de planilhas." },
 ];
 
 export const projetos = [
@@ -49,9 +49,10 @@ export const projetos = [
     link: "https://github.com/Suellenslv6/FrontEnd",
   },
 ];
-export const reposEscolhidos = ["FrontEnd", "controle-de-estoque"];
+export const reposEscolhidos = ["FrontEnd", "controle-de-estoque", "meu-todo"];
 
 export const descricoes = {
   "FrontEnd": "Meus projetos de estudo com React e Next.js, incluindo o catálogo de jogos.",
   "controle-de-estoque": "Atividade feita em ligaugem Java para a cadeira de programação imperativa.",
+  "meu-todo": "App de lista de tarefas criado com React + Vite como atividade prática.",
 };
