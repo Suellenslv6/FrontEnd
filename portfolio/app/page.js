@@ -15,7 +15,13 @@ export default function Home() {
       <h3 className="links">
         <a href={`https://github.com/${perfil.github}`} target="_blank" rel="noreferrer">GitHub</a>
         <a href={perfil.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href={`mailto:${perfil.email}`}>E-mail</a>
+        <a
+          href={`https://mail.google.com/mail/?view=cm&to=${perfil.email}&su=${encodeURIComponent("Contato pelo portfólio")}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          E-mail
+        </a>
       </h3>
     </section>
   );
