@@ -12,11 +12,11 @@ export default function Home() {
         <Link href="/projetos" className="btn">Ver meus projetos</Link>
         <Link href="/sobre" className="btn sec">Conhecer minhas tecnologias</Link>
       </div>
-      <p className="links">
+      <h3 className="links">
         <a href={`https://github.com/${perfil.github}`} target="_blank" rel="noreferrer">GitHub</a>
         <a href={perfil.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
         <a href={`mailto:${perfil.email}`}>E-mail</a>
-      </p>
+      </h3>
     </section>
   );
 }

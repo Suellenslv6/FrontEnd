@@ -1,8 +1,8 @@
 export const perfil = {
   nome: "Suellen Silva",
-  cargo: "Meu principal objetivo é me tornar uma profissional qualificada na área de tecnologia, buscando sempre aprimorar meus conhecimentos em programação e ampliar minha visão sobre o mercado. Buscando conhecimento cada vez mais, pensar como a tecnologia está presente em nosso dia a dia e como pode contribuir para otimizar tarefas, desenvolver soluções, melhorar projetos e facilitar processos. Além de adquirir novos conhecimentos, também desejo compartilhar o que aprendi, contribuindo para o crescimento de outras pessoas e para a troca de experiências.",
+  cargo: "Meu principal objetivo é me tornar uma profissional qualificada na área de tecnologia, buscando sempre aprimorar meus conhecimentos em programação e ampliar minha visão sobre o mercado. Pensar como a tecnologia está presente em nosso dia a dia e como contribue para otimizar tarefas, desenvolver soluções e facilitar processos.",
   resumo:
-    "Sou estudante do curso de sistemas para internet, estou no 3* Périodo, aprendendo nessa cadeira de FrontEnd como desenvolver trabalhos utilizando React e Next.js, aprimorando a construção de interfaces visuais, a organização e a estruturação dos códigos, além de desenvolver habilidades para criar aplicações web mais funcionais e bem estruturadas.",
+    "Sou estudante do curso de sistemas para internet, estou no 3º período, aprendendo nessa cadeira de FrontEnd como desenvolver trabalhos utilizando React e Next.js, aprimorando a construção de interfaces visuais, a organização e a estruturação dos códigos, além de desenvolver habilidades para criar aplicações web mais funcionais e bem estruturadas.",
   github: "Suellenslv6",
   linkedin: "https://www.linkedin.com/in/suellen-silva-7439a7260?utm_source=share_via&utm_content=profile&utm_medium=member_android",
   email: "suellenssilv4@gmail.com",
@@ -22,7 +22,7 @@ export const tecnologias = [
 
 export const academica = [
   { titulo: "Graduanda", lugar: "Universidade Católica de Pernambuco UNICAP", Curso: "Sistemas Para Internet", periodo: "2025.2 – atualmente", desc: "Aprendendo sobre algumas linguagens de programação sendo ela FrontEnd ou BackEnd, mas Sou bastanate interessada na parte de Banco de Dados e em Redes de computadores, gosto da dinâmica do curso como abrimos os olhos para todas as linguagens e no fim decidimos qual será nosso caminho" },
-  { titulo: "Curso Profissionalizante", lugar: "Prepara Cursos", Curso: "Linguagens De Programação", periodo: "2024 - 2025", desc: "Foi onde dei meus primeiros passos no mundo da programação, engatei primeiro nas linguagens de programção, fiz várias atividades que envolvesse HTML/CSS, foi onde estudei pela primeira vez sobre banco de dados e Foi onde meu interesse na área começou." },
+  { titulo: "Curso Profissionalizante", lugar: "Prepara Cursos", Curso: "Linguagens De Programação", periodo: "2024 - 2025", desc: "Foi onde dei meus primeiros passos no mundo da programação, engatei primeiro em conhecer linguagens de programção e como cada uma deve ser usada, fiz várias atividades que envolvesse HTML/CSS, foi onde estudei pela primeira vez sobre banco de dados e foi onde meu interesse na área começou." },
 ];
 
 export const profissional = [
